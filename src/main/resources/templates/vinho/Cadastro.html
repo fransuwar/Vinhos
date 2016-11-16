@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout/LayoutPadrao">
+	
+<head>
+	<title>Cadastro de vinhos</title>
+</head>
+
+<body>
+<section layout:fragment="conteudo">
+
+	<div class="page-header">
+		<div class="container-fluid">
+			<h1>
+				Cadastro de vinhos
+			</h1>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+	
+		<div class="alert  alert-danger  alert-dismissible" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
+		</div>
+	
+		<form method="get" class="form-vertical  js-form-loading">
+			
+			<div class="form-group">
+				<label for="nome">Nome</label>
+				<input id="nome" type="text" class="form-control" placeholder="Vinã"/>
+			</div>
+	
+			<div class="row">
+				<div class="form-group col-sm-6">
+					<label for="tipo">Tipo</label>
+					<select id="tipo" class="form-control">
+						<option selected="selected">Escolha o tipo</option>
+					</select>
+				</div>
+				
+				<div class="form-group col-sm-6">
+					<label for="safra">Safra</label>
+					<input id="safra" type="number" class="form-control" placeholder="2015"/>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="form-group col-sm-6">
+					<label for="volume">Volume</label>
+					<input id="volume" type="number" class="form-control" placeholder="(ml)"/>
+				</div>
+				
+				<div class="form-group col-sm-6">
+					<label for="valor">Valor</label>
+					<input id="valor" type="number" class="form-control" placeholder="R$"/>
+				</div>
+			</div>
+	
+			<div class="form-group">
+				<button class="btn  btn-primary" type="submit">Salvar</button>
+				<a href="#" class="btn  btn-default">Cancelar</a>
+				<a href="#" class="btn  btn-link  aw-btn-link-danger">Excluir este produto</a>
+			</div>
+	
+		</form>
+	</div>
+
+</section>
+</body>
+</html>
