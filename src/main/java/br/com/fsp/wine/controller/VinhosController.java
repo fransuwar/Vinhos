@@ -1,20 +1,20 @@
-package com.algaworks.projeto.controller;
+package br.com.fsp.wine.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/produtos")
-public class ProdutosController {
+@RequestMapping("/vinhos")
+public class VinhosController {
 
 	@RequestMapping("/novo")
 	public String novo() {
-		return "/produto/CadastroProduto";
+		return "/vinho/Cadastro";
 	}
 	
 	@RequestMapping
 	public String pesquisa() {
-		return "/produto/PesquisaProdutos";
+		return "/vinho/Listagem";
 	}
 	
 }

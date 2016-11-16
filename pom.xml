@@ -3,13 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.algaworks</groupId>
-	<artifactId>spring-boot-template-projeto</artifactId>
+	<groupId>br.com.fsp.wine</groupId>
+	<artifactId>wine</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
-	<name>spring-boot-template-projeto</name>
-	<description>Exemplo de projeto Spring Boot com o Layout Atacama da AlgaWorks</description>
+	<name>wine</name>
+	<description>Sistema de controle de venda de vinhos.</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -53,6 +53,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
 
 </project>
