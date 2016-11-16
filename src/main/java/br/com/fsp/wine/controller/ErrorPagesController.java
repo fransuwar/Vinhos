@@ -1,4 +1,4 @@
-package com.algaworks.projeto.controller;
+package br.com.fsp.wine.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
