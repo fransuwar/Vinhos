@@ -15,7 +15,7 @@ public class VinhoService {
 	private Vinhos vinhos;
 	
 	public List<Vinho> buscarTodos(){
-		return vinhos.findAll();
+		return (List<Vinho>) vinhos.findAll();
 	}
 	
 	public void salvar(Vinho vinho){
@@ -28,5 +28,9 @@ public class VinhoService {
 
 	public void deletarPorCodigo(Long codigo) {
 		vinhos.delete(codigo);
+	}
+
+	public boolean existeVinhoCom(Long codigo) {
+		return vinhos.exists(codigo);
 	}
 }
