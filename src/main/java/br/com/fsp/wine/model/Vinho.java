@@ -9,6 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="vinho")
@@ -18,15 +25,26 @@ public class Vinho {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
 	
+	@NotEmpty(message = "O nome do vinho deve ser informado.")
+	@Size(min = 3, max = 45, message = "O nome do vinho deve ter no minimo {min} e no máximo {max} caracteres.")
 	private String nome;
 	
+	@NotNull(message = "Tipo do vinho deve ser escolhido.")
 	@Enumerated(EnumType.STRING)
 	private TipoVinho tipo;
 	
+	@NotNull(message = "A safra do vinho deve ser informada.")
+	@Min(value = 1, message = "A safra do vinho deve ser no mínimo {value}.")
+	@Max(value = 2016, message = "A safra do vinho deve ser no máximo {value}.")
 	private Integer safra;
 	
+	@NotNull(message = "O volume do vinho deve ser informado.")
+	@Min(value = 50, message = "O volume do vinho deve ser no mínimo {value}.")
+	@Max(value = 20000, message = "O volume do vinho deve ser no máximo {value}.")
 	private Integer volume;
 	
+	@NotNull(message = "O valor do vinho deve ser informado.")
+	@DecimalMin(value = "0.00", message = "O valor do vinho deve ser no mínimo {value}.")
 	private BigDecimal valor;
 	
 	public Long getCodigo() {
