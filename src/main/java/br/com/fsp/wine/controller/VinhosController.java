@@ -17,6 +17,13 @@ public class VinhosController {
 	@Autowired
 	private VinhoService vinhoService;
 	
+
+	@RequestMapping
+	public String pesquisa(Model model) {
+		model.addAttribute("vinhos", vinhoService.buscarTodos());
+		return "/vinho/Listagem";
+	}
+	
 	@RequestMapping("/novo")
 	public String novo(Vinho vinho, Model model) {
 		model.addAttribute("vinho", vinho);
@@ -28,11 +35,6 @@ public class VinhosController {
 	public String salvar(Vinho vinho, Model model) {
 		vinhoService.salvar(vinho);
 		return novo(new Vinho(), model);
-	}
-	
-	@RequestMapping
-	public String pesquisa() {
-		return "/vinho/Listagem";
 	}
 	
 }
