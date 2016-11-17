@@ -45,13 +45,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td><a href="#">Vinã 1</a></td>
-						<td>Tinto</td>
-						<td>2014</td>
-						<td>600ml</td>
-						<td>R$1.699,00</td>
+					<tr th:each="vinho : ${vinhos}">
+						<td th:text="${vinho.codigo}">1</td>
+						<td><a th:href="@{/vinhos/{codigo}(codigo=${vinho.codigo})}" th:text="${vinho.nome}">Vinã 1</a></td>
+						<td th:text="${vinho.tipo.descricao}">Tinto</td>
+						<td th:text="${vinho.safra}">2014</td>
+						<td th:text="|${vinho.volume}ml|">600ml</td>
+						<td th:text="|R$ ${vinho.valor}|">R$1.699,00</td>
+					</tr>
+					<tr th:if="${#lists.isEmpty(vinhos)}" >
+						<td colspan="6">Nenhum vinho cadastrado.</td>
 					</tr>
 				</tbody>
 			</table>
