@@ -26,36 +26,39 @@
 			<i class="fa  fa-exclamation-circle"></i> Já existe um produto com o nome informado.
 		</div>
 	
-		<form method="get" class="form-vertical  js-form-loading">
+		<form th:action="@{/vinhos/novo}" th:object="${vinho}" method="post" class="form-vertical  js-form-loading">
+			
+			<input th:field="*{codigo}" id="codigo" type="hidden" />
 			
 			<div class="form-group">
 				<label for="nome">Nome</label>
-				<input id="nome" type="text" class="form-control" placeholder="Vinã"/>
+				<input th:field="*{nome}" id="nome" type="text" class="form-control" placeholder="Vinã"/>
 			</div>
 	
 			<div class="row">
 				<div class="form-group col-sm-6">
 					<label for="tipo">Tipo</label>
-					<select id="tipo" class="form-control">
+					<select th:field="*{tipo}" id="tipo" class="form-control">
 						<option selected="selected">Escolha o tipo</option>
+						<option th:each="tipo : ${tipos}" th:value="${tipo}" th:text="${tipo.descricao}"></option>
 					</select>
 				</div>
 				
 				<div class="form-group col-sm-6">
 					<label for="safra">Safra</label>
-					<input id="safra" type="number" class="form-control" placeholder="2015"/>
+					<input th:field="*{safra}" id="safra" type="number" class="form-control" placeholder="2015"/>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="form-group col-sm-6">
 					<label for="volume">Volume</label>
-					<input id="volume" type="number" class="form-control" placeholder="(ml)"/>
+					<input th:field="*{volume}" id="volume" type="number" class="form-control" placeholder="(ml)"/>
 				</div>
 				
 				<div class="form-group col-sm-6">
 					<label for="valor">Valor</label>
-					<input id="valor" type="number" class="form-control" placeholder="R$"/>
+					<input th:field="*{valor}" id="valor" type="number" class="form-control" placeholder="R$"/>
 				</div>
 			</div>
 	

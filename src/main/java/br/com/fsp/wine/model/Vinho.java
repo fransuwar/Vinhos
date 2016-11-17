@@ -2,13 +2,37 @@ package br.com.fsp.wine.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "vinho")
 public class Vinho {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
 	private String nome;
+	
+	@Enumerated(EnumType.STRING)
 	private TipoVinho tipo;
 	private Integer safra;
 	private Integer volume;
 	private BigDecimal valor;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getNome() {
 		return nome;
