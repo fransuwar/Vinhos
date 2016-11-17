@@ -15,14 +15,14 @@ import br.com.fsp.wine.model.TipoVinho;
 import br.com.fsp.wine.model.Vinho;
 import br.com.fsp.wine.service.VinhoService;
 
-import static br.com.fsp.wine.util.ConstantesURL.URL_404;
-
 @Controller
 @RequestMapping("/vinhos")
 public class VinhosController {
 
 	private final String VINHO_SALVO_COM_SUCESSO = "Vinho salvo com sucesso.";
 	private final String VINHO_DELETADO_COM_SUCESSO = "Vinho deletado com sucesso.";
+	
+	private final String NOT_FOUND ="/error/404";
 	
 	@Autowired
 	private VinhoService vinhoService;
@@ -56,7 +56,7 @@ public class VinhosController {
 		if (vinhoService.existeVinhoCom(codigo)) {
 			return novo(vinhoService.buscarPorCodigo(codigo), model);
 		}
-		return URL_404;
+		return NOT_FOUND;
 	}
 	
 	@RequestMapping("/deletar/{codigo}")
@@ -66,7 +66,7 @@ public class VinhosController {
 			atributos.addFlashAttribute("mensagem", VINHO_DELETADO_COM_SUCESSO);
 			return novo(new Vinho(), model);
 		}
-		return URL_404;
+		return NOT_FOUND;
 	}
 	
 }
