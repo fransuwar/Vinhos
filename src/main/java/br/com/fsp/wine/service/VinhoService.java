@@ -21,4 +21,12 @@ public class VinhoService {
 	public void salvar(Vinho vinho){
 		vinhos.save(vinho);
 	}
+
+	public Vinho buscarPorCodigo(Long codigo) {
+		return vinhos.findOne(codigo);
+	}
+
+	public void deletarPorCodigo(Long codigo) {
+		vinhos.delete(codigo);
+	}
 }
