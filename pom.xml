@@ -85,6 +85,18 @@
  					</reportPlugins>
  				</configuration>
 			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+			    <artifactId>maven-site-plugin</artifactId>
+			    <configuration>
+			    	<reportPlugins>
+			    		<groupId>org.codehaus.mojo</groupId>
+					    <artifactId>findbugs-maven-plugin</artifactId>
+					    <version>3.0.4</version>
+			    	</reportPlugins>
+			    </configuration>
+			</plugin>
 		</plugins>
 	</build>
 
