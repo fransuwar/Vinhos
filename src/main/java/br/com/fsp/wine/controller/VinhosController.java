@@ -22,7 +22,7 @@ public class VinhosController {
 	private final String VINHO_SALVO_COM_SUCESSO = "Vinho salvo com sucesso.";
 	private final String VINHO_DELETADO_COM_SUCESSO = "Vinho deletado com sucesso.";
 	
-	private final String NOT_FOUND ="/error/404";
+	private final String NOT_FOUND ="/404";
 	
 	@Autowired
 	private VinhoService vinhoService;
@@ -64,7 +64,7 @@ public class VinhosController {
 		if (vinhoService.existeVinhoCom(codigo)) {
 			vinhoService.deletarPorCodigo(codigo);
 			atributos.addFlashAttribute("mensagem", VINHO_DELETADO_COM_SUCESSO);
-			return novo(new Vinho(), model);
+			return "redirect:/vinhos";
 		}
 		return NOT_FOUND;
 	}

@@ -32,6 +32,12 @@
 	</div>
 
 	<div class="container-fluid">
+		
+		<div class="alert  alert-success  alert-dismissible" role="alert" th:unless="${#strings.isEmpty(mensagem)}">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<span th:text="${mensagem}">Sucesso.</span>
+		</div>
+		
 		<div class="table-responsive">
 			<table id="tabela-produtos" class="table  table-striped  table-bordered  table-hover  table-condensed  js-sticky-table">
 				<thead class="aw-table-header-solid">
@@ -42,16 +48,28 @@
 						<th>Safra</th>
 						<th>Volume</th>
 						<th>Valor</th>
+						<th class="table-pesq-produto-col-acoes">Ações</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="vinho : ${vinhos}">
 						<td th:text="${vinho.codigo}">1</td>
-						<td><a th:href="@{/vinhos/editar/{codigo}(codigo=${vinho.codigo})}" th:text="${vinho.nome}">Vinã 1</a></td>
+						<td th:text="${vinho.nome}">Vinã</td>
 						<td th:text="${vinho.tipo.descricao}">Tinto</td>
 						<td th:text="${vinho.safra}">2014</td>
 						<td th:text="|${vinho.volume}ml|">600ml</td>
 						<td th:text="|R$ ${vinho.valor}|">R$1.699,00</td>
+						<td class="table-pesq-produto-col-acoes">
+							<div class="btn-group">
+								<a th:href="@{/vinhos/editar/{codigo}(codigo=${vinho.codigo})}" class="btn  btn-default btn-xs">
+									<i class="fa  fa-pencil"></i>
+								</a>
+								
+								<a th:href="@{/vinhos/deletar/{codigo}(codigo=${vinho.codigo})}" class="btn  btn-default btn-xs">
+									<i class="fa  fa-trash"></i>
+								</a>
+							</div>
+						</td>
 					</tr>
 					<tr th:if="${#lists.isEmpty(vinhos)}" >
 						<td colspan="6">Nenhum vinho cadastrado.</td>
