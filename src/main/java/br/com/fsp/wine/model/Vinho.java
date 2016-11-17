@@ -11,69 +11,60 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "vinho")
+@Table(name="vinho")
 public class Vinho {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codigo;
-
+	
 	private String nome;
-
+	
 	@Enumerated(EnumType.STRING)
 	private TipoVinho tipo;
+	
 	private Integer safra;
+	
 	private Integer volume;
+	
 	private BigDecimal valor;
-
+	
 	public Long getCodigo() {
 		return codigo;
 	}
-
 	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
-
 	public String getNome() {
 		return nome;
 	}
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
 	public TipoVinho getTipo() {
 		return tipo;
 	}
-
 	public void setTipo(TipoVinho tipo) {
 		this.tipo = tipo;
 	}
-
 	public Integer getSafra() {
 		return safra;
 	}
-
 	public void setSafra(Integer safra) {
 		this.safra = safra;
 	}
-
 	public Integer getVolume() {
 		return volume;
 	}
-
 	public void setVolume(Integer volume) {
 		this.volume = volume;
 	}
-
 	public BigDecimal getValor() {
 		return valor;
 	}
-
 	public void setValor(BigDecimal valor) {
 		this.valor = valor;
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -81,7 +72,6 @@ public class Vinho {
 		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -98,5 +88,5 @@ public class Vinho {
 			return false;
 		return true;
 	}
-
+	
 }
