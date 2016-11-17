@@ -3,6 +3,7 @@ package br.com.fsp.wine.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,6 +36,17 @@ public class VinhosController {
 	public String salvar(Vinho vinho, Model model) {
 		vinhoService.salvar(vinho);
 		return "redirect:/vinhos/novo";
+	}
+	
+	@RequestMapping("/editar/{codigo}")
+	public String editar(@PathVariable Long codigo, Model model) {
+		return novo(vinhoService.buscarPorCodigo(codigo), model);
+	}
+	
+	@RequestMapping("/deletar/{codigo}")
+	public String deletar(@PathVariable Long codigo, Model model) {
+		vinhoService.deletarPorCodigo(codigo);
+		return novo(new Vinho(), model);
 	}
 	
 }

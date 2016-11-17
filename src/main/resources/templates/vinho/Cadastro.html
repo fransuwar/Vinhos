@@ -65,7 +65,7 @@
 			<div class="form-group">
 				<button class="btn  btn-primary" type="submit">Salvar</button>
 				<a href="#" class="btn  btn-default">Cancelar</a>
-				<a href="#" class="btn  btn-link  aw-btn-link-danger">Excluir este produto</a>
+				<a th:href="@{/vinhos/deletar/{codigo}(codigo=${vinho.codigo})}" class="btn  btn-link  aw-btn-link-danger">Excluir este produto</a>
 			</div>
 	
 		</form>
