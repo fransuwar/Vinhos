@@ -34,7 +34,7 @@ public class VinhosController {
 	@RequestMapping(value = "/novo", method = RequestMethod.POST)
 	public String salvar(Vinho vinho, Model model) {
 		vinhoService.salvar(vinho);
-		return novo(new Vinho(), model);
+		return "redirect:/vinhos/novo";
 	}
 	
 }
