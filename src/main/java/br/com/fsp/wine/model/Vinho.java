@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -45,6 +46,7 @@ public class Vinho {
 	
 	@NotNull(message = "O valor do vinho deve ser informado.")
 	@DecimalMin(value = "0.00", message = "O valor do vinho deve ser no mínimo {value}.")
+	@DecimalMax(value = "9999.99", message = "O valor do vinho deve ser no máximo {value}.")
 	private BigDecimal valor;
 	
 	public Long getCodigo() {
