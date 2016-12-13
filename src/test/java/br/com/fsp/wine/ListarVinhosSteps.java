@@ -17,10 +17,19 @@ import br.com.fsp.wine.controller.VinhosController;
 import br.com.fsp.wine.model.Vinho;
 import br.com.fsp.wine.service.VinhoService;
 import cucumber.api.java.Before;
+import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.E;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
 
+/**
+ * 
+ * @author Fransuwar
+ * 
+ * Esta classe testa os passos para listar os vinhos cadastrados no sistema.
+ * Os testes aqui contidos garantem o correto funcionamento da listagem de vinhos de acordo com as regras estabelecidas.
+ *
+ */
 public class ListarVinhosSteps {
 
 	@InjectMocks
@@ -45,6 +54,16 @@ public class ListarVinhosSteps {
 		this.mockMvc = MockMvcBuilders.standaloneSetup(vinhosController).build();
 		vinhosCadastrados = new ArrayList<Vinho>();
 		listagemVazia = new ArrayList<Vinho>();
+	}
+	
+	@Dado("^que sou um funcionário cadastrado no sistema$")
+	public void souFuncionario(){
+		//Adiconar validação futura. No momento não há necessidade.
+	}
+	
+	@E("^gostaria de consultar os vinhos cadastrados no sistema$")
+	public void desejaListaVinhos() throws Throwable{
+		//Adiconar no futura. No momento não há necessidade.
 	}
 	
 	@Quando("^seleciono a opção listar vinhos$")
