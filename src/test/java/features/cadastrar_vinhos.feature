@@ -1,9 +1,12 @@
 # language: pt
 Funcionalidade: Cadastrar vinhos
-	Eu como usuário do sistema gostaria de cadastrar vinhos no sistema.
+	Eu como gerente do sistema gostaria de cadastrar vinhos no sistema.
+	O formulário de cadastro deve conter os seguintes campos: Nome, Tipo, Safra, Volume e Valor do Vinho.
+	Todos os campos são obrigatórios.
 
 	Contexto: 
-		Um usuário gostaria de cadastrar vinhos no sistema.
+		Dado que sou um gerente do sistema
+		E gostaria de cadastrar vinhos no sistema.
 	
 	Cenário: cadastrar um vinho com sucesso
 	    Quando informar nome vinho, tipo tinto, safra 2016, volume 750 e valor 45.0
