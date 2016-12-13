@@ -66,18 +66,18 @@ public class ListarVinhosSteps {
 		//Adiconar no futura. No momento não há necessidade.
 	}
 	
-	@Quando("^seleciono a opção listar vinhos$")
+	@Quando("^seleciono a opção para listar vinhos$")
 	public void selecionarOpcaoListarVinhos() throws Throwable{
 		resultActions = mockMvc.perform(MockMvcRequestBuilders.get(URL_LISTAR_VINHOS));
 		resultActions.andExpect(MockMvcResultMatchers.view().name(TELA_LISTAR_VINHOS));
 	}
 	
-	@E("^existem vinhos cadastrados$")
+	@E("^existem vinhos cadastrados no sistema$")
 	public void existemVinhosCadastrados() throws Throwable{
 		Mockito.when(vinhoService.buscarTodos()).thenReturn(vinhosCadastrados);
 	}
 	
-	@E("^não existem vinhos cadastrados$")
+	@E("^não existem vinhos cadastrados no sistema$")
 	public void naoExistemVinhosCadastrados() throws Throwable{
 		Mockito.when(vinhoService.buscarTodos()).thenReturn(listagemVazia);
 	}

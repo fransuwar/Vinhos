@@ -4,7 +4,7 @@ Funcionalidade: Listar vinhos
 
 	Contexto: 
 		Dado que sou um funcionário cadastrado no sistema
-		E gostaria de consultar os vinhos cadastrados no sistema.
+		E gostaria de consultar os vinhos cadastrados no sistema
 	
 	Cenário: Listar vinhos quando existe vinho cadastrado no sistema
 	    Quando seleciono a opção para listar vinhos
